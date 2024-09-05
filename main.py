@@ -40,4 +40,10 @@ if __name__ == "__main__":
             if f"open {site[0]}" in query.lower():
                 say(f"Opening {site[0]} sir....")
                 webbrowser.open(site[1])
+        if "open video" in query:
+            videoPath = r"C:\Users\vines\New folder\WhatsApp Video 2024-08-19 at 19.47.56_5a11d9cd.mp4"
+            os.startfile(videoPath)
+        if "open pictures" in query:
+            folderPath = "C:/Users/vines/OneDrive/Pictures"
 
+            os.startfile(folderPath)
