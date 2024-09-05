@@ -3,6 +3,7 @@ import os
 import pyttsx3
 import pyaudio
 import webbrowser
+import subprocess
 
 
 def say(text):
@@ -42,12 +43,14 @@ if __name__ == "__main__":
                 webbrowser.open(site[1])
                 break
 
-        if site[0] == "spotify":
+        if "open spotify" in query.lower():
             say("Opening Spotify...")
+            subprocess.run(["start", "spotify:"], shell=True)
             break
 
-        if site[0] == "whatsapp":
-            say("opening whatsapp........")
+        if "open whatsapp" in query.lower():
+            say("Opening WhatsApp...")
+            subprocess.run(["start", "whatsapp:"], shell=True)
             break
 
         if "open video" in query:
