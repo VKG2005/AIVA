@@ -38,6 +38,11 @@ def open_websites(query):
            say(f"opening {site[0]} sir......")
            webbrowser.open(site[1])
 
+def open_App(query):
+    if "open spotify" in query.lower():
+        say("opening spotify ......")
+        subprocess.run(["start","spotify:"], shell=True)
+
 def volume_adjust(query):
     if "increase volume" in query:
         subprocess.run([r"C:\Users\vines\PycharmProjects\AIVA\nircmd-x64\nircmd.exe", "changesysvolume", "10000"])
@@ -56,6 +61,7 @@ def main():
         if query == 'none':
             continue
         open_websites(query)
+        open_App(query)
 
         volume_adjust(query)
 
