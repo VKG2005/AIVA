@@ -31,13 +31,13 @@ def input_command():
             return "none"
         return query
 
-# def volume_adjust(query):
-#     if "volume increase" in query:
-#         subprocess.run([r"C:\Users\vines\PycharmProjects\AIVA\nircmd-x64\nircmd.exe", "changesysvolume", "10000"])
-#         say("volume increase")
-#     elif "decrease volume" in query:
-#         subprocess.run([r"C:\Users\vines\PycharmProjects\AIVA\nircmd-x64\nircmd.exe", "changesysvolume", "-10000"])
-#         say("volume decrease")
+def volume_adjust(query):
+    if "increase volume" in query:
+        subprocess.run([r"C:\Users\vines\PycharmProjects\AIVA\nircmd-x64\nircmd.exe", "changesysvolume", "10000"])
+        say("Volume increased")
+    elif "decrease volume" in query:
+        subprocess.run([r"C:\Users\vines\PycharmProjects\AIVA\nircmd-x64\nircmd.exe", "changesysvolume", "-10000"])
+        say("Volume decreased")
 
 def main():
     say("Hey boss,how are you?,I am your personal assistant")
@@ -46,6 +46,7 @@ def main():
         query = input_command()
         if query == 'none':
             continue
+        volume_adjust(query)
 
 
 
