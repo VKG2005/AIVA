@@ -31,6 +31,13 @@ def input_command():
             return "none"
         return query
 
+def open_websites(query):
+   sites = [["youtube","https://www.youtube.com"],["wikipedia", "https://www.wikipedia.com"], ["google", "https://www.google.com"]]
+   for site in sites:
+       if f"open {site[0]}" in query.lower():
+           say(f"opening {site[0]} sir......")
+           webbrowser.open(site[1])
+
 def volume_adjust(query):
     if "increase volume" in query:
         subprocess.run([r"C:\Users\vines\PycharmProjects\AIVA\nircmd-x64\nircmd.exe", "changesysvolume", "10000"])
@@ -38,7 +45,9 @@ def volume_adjust(query):
     elif "decrease volume" in query:
         subprocess.run([r"C:\Users\vines\PycharmProjects\AIVA\nircmd-x64\nircmd.exe", "changesysvolume", "-10000"])
         say("Volume decreased")
-def open
+
+
+
 def main():
     say("Hey boss,how are you?,I am your personal assistant")
     while True:
@@ -46,7 +55,10 @@ def main():
         query = input_command()
         if query == 'none':
             continue
+        open_websites(query)
+
         volume_adjust(query)
+
 
 
 
