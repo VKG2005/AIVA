@@ -45,6 +45,11 @@ def open_App(query):
     elif "open whatsapp" in query.lower():
         say("opening whatsapp......")
         subprocess.run(["start","whatsapp:"], shell=True)
+    elif "open discord" in query.lower():
+        say("Opening Discord...")
+        subprocess.run("start discord:", shell=True)
+
+
 
 def volume_adjust(query):
     if "increase volume" in query:
@@ -53,6 +58,11 @@ def volume_adjust(query):
     elif "decrease volume" in query:
         subprocess.run([r"C:\Users\vines\PycharmProjects\AIVA\nircmd-x64\nircmd.exe", "changesysvolume", "-10000"])
         say("Volume decreased")
+
+def terminate(query):
+
+        say("I am going to close this program. Thank you sir.......")
+        exit()
 
 
 
@@ -67,6 +77,10 @@ def main():
         open_App(query)
 
         volume_adjust(query)
+        terminate(query)
+
+        if "Terminate the program" in query:
+            terminate(query)
 
 
 
