@@ -71,6 +71,16 @@ def manage_files(query):
         os.startfile(folderPath)
 
 
+def show_time():
+    strfTime = datetime.datetime.now().strftime("%H:%M:%S")
+    print("Current time:", strfTime)
+
+
+def show_date():
+    current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+    print("Current date:", current_date)
+
+
 def terminate(query):
         say("I am going to close this program. Thank you sir.......")
         exit()
@@ -87,8 +97,10 @@ def main():
         open_App(query)
         volume_adjust(query)
         manage_files(query)
-
-
+        if "time" in query:
+            show_date()
+        if "date" in query:
+            show_time()
         if "Terminate the program" in query:
             terminate(query)
 
