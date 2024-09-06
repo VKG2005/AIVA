@@ -38,7 +38,7 @@ def volume_adjust(query):
     elif "decrease volume" in query:
         subprocess.run([r"C:\Users\vines\PycharmProjects\AIVA\nircmd-x64\nircmd.exe", "changesysvolume", "-10000"])
         say("Volume decreased")
-
+def open
 def main():
     say("Hey boss,how are you?,I am your personal assistant")
     while True:
