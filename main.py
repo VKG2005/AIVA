@@ -60,6 +60,6 @@ if __name__ == "__main__":
             folderPath = "C:/Users/vines/OneDrive/Pictures"
             os.startfile(folderPath)
 
-        if "break" in query:
+        if "stop the program" in query:
             break
 
