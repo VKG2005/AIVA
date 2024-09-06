@@ -42,7 +42,9 @@ def open_App(query):
     if "open spotify" in query.lower():
         say("opening spotify ......")
         subprocess.run(["start","spotify:"], shell=True)
-
+    elif "open whatsapp" in query.lower():
+        say("opening whatsapp......")
+        subprocess.run(["start","whatsapp:"], shell=True)
 
 def volume_adjust(query):
     if "increase volume" in query:
