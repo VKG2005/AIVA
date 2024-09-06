@@ -43,6 +43,7 @@ def open_App(query):
         say("opening spotify ......")
         subprocess.run(["start","spotify:"], shell=True)
 
+
 def volume_adjust(query):
     if "increase volume" in query:
         subprocess.run([r"C:\Users\vines\PycharmProjects\AIVA\nircmd-x64\nircmd.exe", "changesysvolume", "10000"])
