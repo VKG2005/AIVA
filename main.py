@@ -7,6 +7,7 @@ import speech_recognition as sr
 import pyaudio
 
 
+
 def say(text):
     print(f"Speaking: {text}")
     engine = pyttsx3.init()
@@ -33,7 +34,8 @@ def input_command():
 
 
 def open_websites(query):
-   sites = [["youtube","https://www.youtube.com"],["wikipedia", "https://www.wikipedia.com"], ["google", "https://www.google.com"]]
+   sites = [["youtube","https://www.youtube.com"],["wikipedia", "https://www.wikipedia.com"], ["google", "https://www.google.com"],
+            ["github","https://github.com/VineshGoswami/AIVA"]]
    for site in sites:
        if f"open {site[0]}" in query.lower():
            say(f"opening {site[0]} sir......")
@@ -48,8 +50,11 @@ def open_App(query):
         say("opening whatsapp......")
         subprocess.run(["start","whatsapp:"], shell=True)
     elif "open discord" in query.lower():
-        say("Opening Discord...")
-        subprocess.run("start discord:", shell=True)
+        say("opening discord...")
+        subprocess.run(["start","discord:"], shell=True)
+    elif "open linkedin" in query.lower():
+        say("opening linkedIn.....")
+        webbrowser.open("https://www.linkedin.com")
 
 
 def volume_adjust(query):
@@ -62,13 +67,21 @@ def volume_adjust(query):
 
 
 def manage_files(query):
+
     if "open video" in query:
         videoPath = r"C:\Users\vines\New folder\WhatsApp Video 2024-08-19 at 19.47.56_5a11d9cd.mp4"
+        say("opening file.....")
         os.startfile(videoPath)
 
     if "open pictures" in query:
         folderPath = "C:/Users/vines/OneDrive/Pictures"
+        say("opening picture folder.....")
         os.startfile(folderPath)
+
+    if "open documents" in query:
+        doc_Path = r"C:\Users\vines\OneDrive\Pictures\Documents"
+        say("opening document folder....")
+        os.startfile(doc_Path)
 
 
 def show_time():
@@ -82,8 +95,8 @@ def show_date():
 
 
 def terminate(query):
-        say("I am going to close this program. Thank you sir.......")
-        exit()
+    say("I am going to close this program. Thank you, sir.......")
+    exit()
 
 
 def main():
@@ -101,7 +114,7 @@ def main():
             show_date()
         if "date" in query:
             show_time()
-        if "Terminate the program" in query:
+        if "terminate the program" in query.lower():
             terminate(query)
 
 
