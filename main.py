@@ -20,6 +20,8 @@ def Guide(query):
 
         say("instructions....")
         say("Here are the available tasks:")
+        say("you have to give the instructions....")
+        say("user instructions taken as input command for performinf tasks ")
         say("open websites....")
         say("open apps....")
         say("system volume adjustment....")
@@ -74,60 +76,62 @@ def open_websites(query):
 
 def open_App(query):
     if "open spotify" in query.lower():
-        say("opening spotify ......")
+        say("opening spotify sir......")
         subprocess.run(["start", "spotify:"], shell=True)
     elif "open whatsapp" in query.lower():
-        say("opening whatsapp......")
+        say("opening whatsapp sir......")
         subprocess.run(["start", "whatsapp:"], shell=True)
     elif "open discord" in query.lower():
-        say("opening discord...")
+        say("opening discord sir ...")
         subprocess.run(["start", "discord:"], shell=True)
     elif "open linkedin" in query.lower():
-        say("opening linkedIn.....")
+        say("opening linkedIn sir.....")
         webbrowser.open("https://www.linkedin.com")
 
 
 def volume_adjust(query):
     if "increase volume" in query:
         subprocess.run([r"C:\Users\vines\PycharmProjects\AIVA\nircmd-x64\nircmd.exe", "changesysvolume", "10000"])
-        say("Volume increased")
+        say("Volume increased sir")
     elif "decrease volume" in query:
         subprocess.run([r"C:\Users\vines\PycharmProjects\AIVA\nircmd-x64\nircmd.exe", "changesysvolume", "-10000"])
-        say("Volume decreased")
+        say("Volume decreased sir")
 
 
 def manage_files(query):
     if "open video" in query:
         videoPath = r"C:\Users\vines\New folder\WhatsApp Video 2024-08-19 at 19.47.56_5a11d9cd.mp4"
-        say("opening file.....")
+        say("opening file sir.....")
         os.startfile(videoPath)
 
     if "open pictures" in query:
         folderPath = "C:/Users/vines/OneDrive/Pictures"
-        say("opening picture folder.....")
+        say("opening picture folder.sir....")
         os.startfile(folderPath)
 
     if "open documents" in query:
         doc_Path = r"C:\Users\vines\OneDrive\Pictures\Documents"
-        say("opening document folder....")
+        say("opening document folder sir....")
         os.startfile(doc_Path)
 
 
 def show_time():
     strfTime = datetime.datetime.now().strftime("%H:%M:%S")
+    say("The current time is display on screen sir...")
     print("Current time:", strfTime)
 
 
 def show_date():
     current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+    say("The current date is display on screen sir....")
     print("Current date:", current_date)
 
 
 def chat(query):
     query = query.lower()
     if "how are you aiva" in query:
-        say("I am fine sir, aap kaise hai!")
-        print("I am fine sir, aap kaise hai!")
+        say("I am fine sir, thank you for asking. How can I assist you today?")
+        print("I am fine sir, thank you for asking. How can I assist you today?")
 
     elif "who is your boss" in query:
 
@@ -157,22 +161,35 @@ def terminate(query):
 
 def main():
     say("Hey boss,how are you?,I am your personal assistant")
+
     while True:
+
         print('Listening....')
+        #command for input from user
         query = input_command()
+
         if query == 'none':
             continue
+
         open_websites(query)
+
         open_App(query)
+
         volume_adjust(query)
+
         manage_files(query)
+
         if "time" in query:
             show_date()
+
         if "date" in query:
             show_time()
+
         chat(query)
+
         if "terminate the program" in query.lower():
             terminate(query)
+
         Guide(query)
 
 
