@@ -8,6 +8,11 @@ import pyaudio
 import openai
 
 openai.api_key = "sk-Mfw5cdJpi4K825e2isT7VxFjvOyNwBoVDxVkEGOUM6T3BlbkFJdVALjtIi6hiJnVxfplaLcjymKYYrtj5o1yq0t_w2YA"
+known_phrases = {
+    "how are you aiva?": "I am fine sir, what about you?",
+    "who is your boss?": "As you generated me, you are my boss.",
+    "so i will give you some instructions": "Perform tasks according to that."
+}
 
 
 def say(text):
@@ -111,6 +116,9 @@ def talk_to_me(query):
     )
     answer = response.choices[0].text.strip()
     return answer
+
+
+
 
 
 def main():
