@@ -101,7 +101,7 @@ def terminate(query):
 
 
 def talk_to_me(query):
-    resonse = openai.completion.create(
+    response = openai.completion.create(
         engine="text-davinci-003",
         prompt=query,
         max_token=100,
