@@ -22,7 +22,7 @@ def input_command():
         audio = r.listen(source)
 
         try:
-            print ("recognizing....")
+            print("recognizing....")
             query = r.recognize_google(audio, language="en-in")
             # query = r.recognize_google(audio, language="hi-in")
             print(f"User said: {query}")
@@ -33,24 +33,25 @@ def input_command():
 
 
 def open_websites(query):
-   sites = [["youtube","https://www.youtube.com"],["wikipedia", "https://www.wikipedia.com"], ["google", "https://www.google.com"],
-            ["github","https://github.com/VineshGoswami/AIVA"]]
-   for site in sites:
-       if f"open {site[0]}" in query.lower():
-           say(f"opening {site[0]} sir......")
-           webbrowser.open(site[1])
+    sites = [["youtube", "https://www.youtube.com"], ["wikipedia", "https://www.wikipedia.com"],
+             ["google", "https://www.google.com"],
+             ["github", "https://github.com/VineshGoswami/AIVA"]]
+    for site in sites:
+        if f"open {site[0]}" in query.lower():
+            say(f"opening {site[0]} sir......")
+            webbrowser.open(site[1])
 
 
 def open_App(query):
     if "open spotify" in query.lower():
         say("opening spotify ......")
-        subprocess.run(["start","spotify:"], shell=True)
+        subprocess.run(["start", "spotify:"], shell=True)
     elif "open whatsapp" in query.lower():
         say("opening whatsapp......")
-        subprocess.run(["start","whatsapp:"], shell=True)
+        subprocess.run(["start", "whatsapp:"], shell=True)
     elif "open discord" in query.lower():
         say("opening discord...")
-        subprocess.run(["start","discord:"], shell=True)
+        subprocess.run(["start", "discord:"], shell=True)
     elif "open linkedin" in query.lower():
         say("opening linkedIn.....")
         webbrowser.open("https://www.linkedin.com")
@@ -66,7 +67,6 @@ def volume_adjust(query):
 
 
 def manage_files(query):
-
     if "open video" in query:
         videoPath = r"C:\Users\vines\New folder\WhatsApp Video 2024-08-19 at 19.47.56_5a11d9cd.mp4"
         say("opening file.....")
@@ -93,6 +93,33 @@ def show_date():
     print("Current date:", current_date)
 
 
+def chat(query):
+    query = query.lower()
+    if "how are you aiva" in query:
+        say("I am fine sir, aap kaise hai!")
+        print("I am fine sir, aap kaise hai!")
+
+    elif "who is your boss" in query:
+
+        say("Well, of course, you are! You brought me to life, ""after all. "
+            "So, that makes you my brilliant creator ""and ultimate boss! "
+            "What can I do for you today, boss?")
+
+        print("Well, of course, you are! You brought me to life, after all. "
+              "So, that makes you my brilliant creator and ultimate boss! "
+              "What can I do for you today, boss?")
+
+    elif "what you can do for me" in query:
+
+        say("I can perform various tasks like opening apps, websites, adjusting volume, and more!")
+        print("I can perform various tasks like opening apps, websites, adjusting volume, and more!")
+
+    elif "thankyou" in query:
+
+        say("You're welcome!")
+        print("You're welcome!")
+
+
 def terminate(query):
     say("I am going to close this program. Thank you, sir.......")
     exit()
@@ -113,9 +140,10 @@ def main():
             show_date()
         if "date" in query:
             show_time()
+        chat(query)
         if "terminate the program" in query.lower():
             terminate(query)
-g
+
 
 if __name__ == "__main__":
     main()
