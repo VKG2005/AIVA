@@ -7,6 +7,36 @@ import speech_recognition as sr
 import pyaudio
 
 
+def Guide(query):
+    query = query.lower()
+    if "hello" in query:
+        say("welcome ! how may i help you .....")
+
+    elif "help me please" in query:
+        say("sure! i will ....")
+        say("so I am going to give you some instructions for how to use me...")
+        say("I am also going to display the following instructions ,"
+            "so if you can't understand please refer that or feel free to ask me again....")
+
+        say("instructions....")
+        say("Here are the available tasks:")
+        say("open websites....")
+        say("open apps....")
+        say("system volume adjustment....")
+        say("manage files....")
+        say("show  date and time... ")
+        say("termination of program...")
+
+        print("instructions....")
+        print("Here are the available tasks:")
+        print("open websites....")
+        print("open apps")
+        print("system volume adjustment")
+        print("manage files")
+        print("show  date and time ")
+        print("termination of program...")
+
+
 def say(text):
     print(f"Speaking: {text}")
     engine = pyttsx3.init()
@@ -143,6 +173,7 @@ def main():
         chat(query)
         if "terminate the program" in query.lower():
             terminate(query)
+        Guide(query)
 
 
 if __name__ == "__main__":
