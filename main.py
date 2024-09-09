@@ -5,9 +5,6 @@ import webbrowser
 import pyttsx3
 import speech_recognition as sr
 import pyaudio
-import openai
-
-openai.api_key = "sk-Mfw5cdJpi4K825e2isT7VxFjvOyNwBoVDxVkEGOUM6T3BlbkFJdVALjtIi6hiJnVxfplaLcjymKYYrtj5o1yq0t_w2YA"
 
 
 def say(text):
@@ -23,8 +20,9 @@ def input_command():
         r.pause_threshold = 1
 
         audio = r.listen(source)
+
         try:
-            print("recognizing....")
+            print ("recognizing....")
             query = r.recognize_google(audio, language="en-in")
             # query = r.recognize_google(audio, language="hi-in")
             print(f"User said: {query}")
@@ -35,25 +33,24 @@ def input_command():
 
 
 def open_websites(query):
-    sites = [["youtube", "https://www.youtube.com"], ["wikipedia", "https://www.wikipedia.com"],
-             ["google", "https://www.google.com"],
-             ["github", "https://github.com/VineshGoswami/AIVA"]]
-    for site in sites:
-        if f"open {site[0]}" in query.lower():
-            say(f"opening {site[0]} sir......")
-            webbrowser.open(site[1])
+   sites = [["youtube","https://www.youtube.com"],["wikipedia", "https://www.wikipedia.com"], ["google", "https://www.google.com"],
+            ["github","https://github.com/VineshGoswami/AIVA"]]
+   for site in sites:
+       if f"open {site[0]}" in query.lower():
+           say(f"opening {site[0]} sir......")
+           webbrowser.open(site[1])
 
 
 def open_App(query):
     if "open spotify" in query.lower():
         say("opening spotify ......")
-        subprocess.run(["start", "spotify:"], shell=True)
+        subprocess.run(["start","spotify:"], shell=True)
     elif "open whatsapp" in query.lower():
         say("opening whatsapp......")
-        subprocess.run(["start", "whatsapp:"], shell=True)
+        subprocess.run(["start","whatsapp:"], shell=True)
     elif "open discord" in query.lower():
         say("opening discord...")
-        subprocess.run(["start", "discord:"], shell=True)
+        subprocess.run(["start","discord:"], shell=True)
     elif "open linkedin" in query.lower():
         say("opening linkedIn.....")
         webbrowser.open("https://www.linkedin.com")
@@ -69,6 +66,7 @@ def volume_adjust(query):
 
 
 def manage_files(query):
+
     if "open video" in query:
         videoPath = r"C:\Users\vines\New folder\WhatsApp Video 2024-08-19 at 19.47.56_5a11d9cd.mp4"
         say("opening file.....")
@@ -100,19 +98,6 @@ def terminate(query):
     exit()
 
 
-def talk_to_me(query):
-    resonse = openai.completion.create(
-        engine="text-davinci-003",
-        prompt=query,
-        max_token=100,
-        n=1,
-        stop=none,
-        temperature=0.7
-    )
-    answer = response.choices[0].text.strip()
-    return answer
-
-
 def main():
     say("Hey boss,how are you?,I am your personal assistant")
     while True:
@@ -130,7 +115,7 @@ def main():
             show_time()
         if "terminate the program" in query.lower():
             terminate(query)
-
+g
 
 if __name__ == "__main__":
     main()
