@@ -115,7 +115,7 @@ def main():
             show_time()
         if "terminate the program" in query.lower():
             terminate(query)
-
+g
 
 if __name__ == "__main__":
     main()
