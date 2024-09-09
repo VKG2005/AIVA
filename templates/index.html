@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIVA Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to AIVA Personal Assistant</h1>
+        <form id="commandForm">
+            <input type="text" id="query" name="query" placeholder="Enter your command">
+            <button type="submit">Submit</button>
+        </form>
+        <div id="response"></div>
+    </div>
+    <script>
+        document.getElementById('commandForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let query = document.getElementById('query').value;
+            fetch('/command', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({ query: query })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response').innerText = data.response;
+            });
+        });
+    </script>
+</body>
+</html>
