@@ -154,6 +154,48 @@ def chat(query):
         print("You're welcome!")
 
 
+def input_numbers(query):
+    query = query.lower()
+    if "perform operations" in query:
+        say("enter your variables  value sir ......")
+        x = int(input("Enter variable1: "))
+        print(f"First variable: {x}")
+        say("enter the value of another variable sir.....")
+        y = int(input("Enter variable2: "))
+        print(f"Second variable: {y}")
+
+        say("what operation you want to perform.......")
+        operation = input("operation type +,-,*,%,** :").strip()
+        result = None
+        if operation == '+':
+            result = x + y
+
+        elif operation == '-':
+            result = x - y
+
+        elif operation == '*':
+            result = x * y
+
+        elif operation == '**':
+            result = x ** y
+
+        elif operation == '/':
+
+            if y != 0:
+                result = y/x
+            else:
+                say("number is not divided bu '0'")
+
+        elif operation == '%':
+            result = x % y
+        else:
+            say("Invalid operation selected.")
+            return
+
+        say(f"The result of {operation} operation on {x} and {y} is {result}.")
+        print(f"Result: {result}")
+
+
 def terminate(query):
     say("I am going to close this program. Thank you, sir.......")
     exit()
@@ -191,6 +233,9 @@ def main():
             terminate(query)
 
         Guide(query)
+
+        if "perform operations" in query.lower():
+            input_numbers(query)
 
 
 if __name__ == "__main__":
