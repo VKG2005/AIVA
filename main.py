@@ -21,12 +21,13 @@ def Guide(query):
         say("instructions....")
         say("Here are the available tasks:")
         say("you have to give the instructions....")
-        say("user instructions taken as input command for performinf tasks ")
+        say("user instructions taken as input command for performing tasks ")
         say("open websites....")
         say("open apps....")
         say("system volume adjustment....")
         say("manage files....")
         say("show  date and time... ")
+        say("some mathematical calculations.....")
         say("termination of program...")
 
         print("instructions....")
@@ -36,6 +37,7 @@ def Guide(query):
         print("system volume adjustment")
         print("manage files")
         print("show  date and time ")
+        print("some mathematical calculations......")
         print("termination of program...")
 
 
