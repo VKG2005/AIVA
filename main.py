@@ -131,7 +131,9 @@ def show_date():
 
 def chat(query):
     query = query.lower()
+
     if "how are you aiva" in query:
+
         say("I am fine sir, thank you for asking. How can I assist you today?")
         print("I am fine sir, thank you for asking. How can I assist you today?")
 
